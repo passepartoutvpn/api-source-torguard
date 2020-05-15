@@ -96,7 +96,7 @@ presets = [preset1, preset256, preset512]
 defaults = {
     :username => "user@mail.com",
     :pool => "us",
-    :preset => "preset256"
+    :preset => "preset1"
 }
 
 ###
