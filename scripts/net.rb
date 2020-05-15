@@ -30,37 +30,73 @@ servers.map! { |s|
 cfg = {
     ca: ca,
     wrap: tls_wrap,
-    ep: [
-        "UDP:1912",
-        "UDP:1195",
-        "TCP:1912",
-        "TCP:1195"
-    ],
     cipher: "AES-256-GCM",
-    auth: "SHA256",
     frame: 2,
     compression: 0,
     eku: true,
     ping: 5
 }
 
+cfg_sha1 = cfg.dup
+cfg_sha1["auth"] = "SHA1"
+cfg_sha1["ep"] = [
+    "UDP:443",
+    "UDP:80",
+    "UDP:995",
+    "TCP:443",
+    "TCP:80",
+    "TCP:995"
+]
+
+cfg_sha256 = cfg.dup
+cfg_sha256["auth"] = "SHA256"
+cfg_sha256["ep"] = [
+    "UDP:1912",
+    "UDP:1195",
+    "TCP:1912",
+    "TCP:1195"
+]
+
+cfg_sha512 = cfg.dup
+cfg_sha512["auth"] = "SHA512"
+cfg_sha512["ep"] = [
+    "UDP:1215",
+    "UDP:389",
+    "TCP:1215",
+    "TCP:389"
+]
+
 external = {
     hostname: "${id}.#{domain}"
 }
 
-recommended = {
-    id: "default",
-    name: "Default",
-    comment: "256-bit encryption",
-    cfg: cfg,
+preset1 = {
+    id: "preset1",
+    name: "SHA1",
+    comment: "160-bit authentication",
+    cfg: cfg_sha1,
     external: external
 }
-presets = [recommended]
+preset256 = {
+    id: "preset256",
+    name: "SHA256",
+    comment: "256-bit authentication",
+    cfg: cfg_sha256,
+    external: external
+}
+preset512 = {
+    id: "preset512",
+    name: "SHA512",
+    comment: "512-bit authentication",
+    cfg: cfg_sha512,
+    external: external
+}
+presets = [preset1, preset256, preset512]
 
 defaults = {
     :username => "user@mail.com",
     :pool => "us",
-    :preset => "default"
+    :preset => "preset256"
 }
 
 ###
