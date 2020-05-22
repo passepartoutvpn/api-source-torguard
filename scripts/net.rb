@@ -94,7 +94,9 @@ defaults = {
 pools = []
 servers.each { |s|
     en_country = s[0]
-    country = s[0].to_country_code.upcase
+    country = s[0].to_country_code
+    raise "Not found '#{en_country}'" if country.nil?
+    country = country.upcase
     hostname = s[1]
     id = hostname.split(".")[0].downcase
     area = s[2]
