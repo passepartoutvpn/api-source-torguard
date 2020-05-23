@@ -33,7 +33,8 @@ cfg = {
     frame: 1,
     compression: 1,
     eku: true,
-    ping: 5
+    ping: 5,
+    pingTimeout: 30
 }
 
 cfg_default = cfg.dup
