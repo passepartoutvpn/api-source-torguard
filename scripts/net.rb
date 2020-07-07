@@ -5,7 +5,7 @@ require "nokogiri"
 
 cwd = File.dirname(__FILE__)
 Dir.chdir(cwd)
-load("util.rb")
+load "util.rb"
 
 ###
 
