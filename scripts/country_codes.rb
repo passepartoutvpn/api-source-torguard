@@ -191,6 +191,7 @@ COUNTRY_CODES = {
     'Sao Tome And Principe' => 'ST',
     'Saudi Arabia' => 'SA',
     'Senegal' => 'SN',
+    'Serbia' => 'SRB',
     'Seychelles' => 'SC',
     'Sierra Leone' => 'SL',
     'Singapore' => 'SG',
