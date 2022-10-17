@@ -12,7 +12,6 @@ load "country_codes.rb"
 
 template = File.open("../template/servers.html") { |f| Nokogiri::HTML(f) }
 ca = File.read("../static/ca.crt")
-tls_auth = read_tls_wrap("auth", 1, "../static/ta.key", 4)
 tls_crypt = read_tls_wrap("crypt", 1, "../static/ta.key", 4)
 domain = "torguard.org"
 
