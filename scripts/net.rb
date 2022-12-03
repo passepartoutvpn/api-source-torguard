@@ -96,7 +96,10 @@ template.each { |s|
   raise "Not found '#{en_country}'" if country.nil?
   country = country.upcase
   hostname = s[1]
-  id = hostname.split(".")[0].downcase
+  id_comps = hostname.split(".")
+  id_comps.pop # "org"
+  id_comps.pop # "torguard"
+  id = id_comps.join(".").downcase
   area = s[2]
 
   addresses = nil
