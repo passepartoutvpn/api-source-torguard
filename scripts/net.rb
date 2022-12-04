@@ -102,6 +102,11 @@ template.each { |s|
   id = id_comps.join(".").downcase
   area = s[2]
 
+  # normalize Serbia
+  if country == "SRB" then
+    country = "RS"
+  end
+
   addresses = nil
   if ARGV.include? "noresolv"
     addresses = []
