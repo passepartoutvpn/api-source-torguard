@@ -33,8 +33,8 @@ cfg = {
   compressionFraming: 1,
   compressionAlgorithm: 1,
   checksEKU: true,
-  keepAliveSeconds: 5,
-  keepAliveTimeoutSeconds: 30
+  keepAliveInterval: 5,
+  keepAliveTimeout: 30
 }
 
 cfg_default = cfg.dup
